@@ -1,0 +1,22 @@
+{
+  "name": "z-toolkit",
+  "version": "0.1.0",
+  "description": "High-performance Zig-based tools for OpenCode",
+  "type": "module",
+  "scripts": {
+    "build": "zig build",
+    "test": "bun test && zig build test",
+    "test:compatibility": "cd opencode-ref && bun test packages/opencode/test/tool/edit.test.ts",
+    "benchmark": "bun run benchmarks/edit-benchmark.ts",
+    "install:opencode": "mkdir -p .opencode/tool && cp src/opencode-integration/edit.ts .opencode/tool/",
+    "sync": "cd opencode-ref && git pull origin main && cd .. && bun run test:compatibility"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@opencode-ai/plugin": "latest",
+    "ffi-napi": "^4.0.3"
+  },
+  "peerDependencies": {
+    "opencode": "*"
+  }
+}
