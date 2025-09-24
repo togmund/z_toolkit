@@ -1,0 +1,686 @@
+🚀 Starting Tool Test Pipeline for: edit
+🧪 Running OpenCode edit tests...
+OpenCode tests exit code: 1
+OpenCode stderr: 
+packages/opencode/test/tool/edit.test.ts:
+
+# Unhandled error between tests
+-------------------------------
+error: Cannot find module '@opencode-ai/sdk' from '/Users/togmund/z_toolkit/opencode/packages/opencode/src/plugin/index.ts'
+-------------------------------
+
+
+ 0 pass
+ 1 fail
+ 1 error
+Ran 1 test across 1 file. [124.00ms]
+
+
+🔄 Running comparison tests for edit tool
+📝 Extracting test cases from OpenCode...
+✅ Extracted 48 test cases
+
+=== Test Case 1 ===
+Content: function hello() {
+  console.log("world");
+}
+Find: console.log("world");
+Replace: console.log("universe");
+ReplaceAll: false
+Should Fail: false
+JSON being sent: {"content":"function hello() {\n  console.log(\"world\");\n}","oldString":"console.log(\"world\");","newString":"console.log(\"universe\");","replaceAll":false}
+Zig Result: ✅ SUCCESS
+Output: function hello() {
+  console.log("universe");
+}
+=== DEBUG FIRST TEST ===
+Result passed: true
+Result output: "function hello() {
+  console.log("universe");
+}"
+Looking for: "console.log("universe");"
+Should fail: false
+Contains replacement? true
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 2 ===
+Content: if (condition) {
+  doSomething();
+  doSomethingEls...
+Find:   doSomething();
+  doSomething...
+Replace:   doNewThing();
+  doAnotherThi...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: if (condition) {
+  doNewThing();
+  doAnotherThing();
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 3 ===
+Content: function test() {
+    console.log("hello");
+}
+Find: console.log("hello");
+Replace: console.log("goodbye");
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: function test() {
+    console.log("goodbye");
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 4 ===
+Content: const x = 5;   
+const y = 10;
+Find: const x = 5;
+Replace: const x = 15;
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const x = 15;   
+const y = 10;
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 5 ===
+Content:   if (true) {
+    return false;
+  }
+Find: if (true) {
+return false;
+}
+Replace: if (false) {
+return true;
+}
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: if (false) {
+return true;
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 6 ===
+Content: function calculate(a, b) {
+  const temp = a + b;
+ ...
+Find: function calculate(a, b) {
+  /...
+Replace: function calculate(a, b) {
+  r...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 7 ===
+Content: class MyClass {
+  constructor() {
+    this.value =...
+Find: class MyClass {
+  // different...
+Replace: class MyClass {
+  constructor(...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 8 ===
+Content: function test() {
+	console.log("hello");
+}
+Find:   console.log("hello");
+Replace:   console.log("world");
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: function test() {
+  console.log("world");
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 9 ===
+Content: const   x    =     5;
+Find: const x = 5;
+Replace: const x = 10;
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const x = 10;
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 10 ===
+Content: if	(  condition	) {
+Find: if ( condition ) {
+Replace: if (newCondition) {
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: if (newCondition) {
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 11 ===
+Content:     function nested() {
+      console.log("deeply ...
+Find: function nested() {
+  console....
+Replace: function nested() {
+  console....
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: function nested() {
+  console.log("updated");
+  return false;
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 12 ===
+Content:   if (true) {
+    console.log("level 1");
+      co...
+Find: if (true) {
+console.log("level...
+Replace: if (true) {
+console.log("updat...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: if (true) {
+console.log("updated");
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 13 ===
+Content: console.log("test");
+console.log("test");
+console....
+Find: console.log("test");
+Replace: console.log("updated");
+ReplaceAll: true
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: console.log("updated");
+console.log("updated");
+console.log("updated");
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 14 ===
+Content: console.log("test");
+console.log("test");
+Find: console.log("test");
+Replace: console.log("updated");
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: console.log("updated");
+console.log("test");
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 15 ===
+Content: console.log("hello");
+Find: nonexistent string
+Replace: updated
+ReplaceAll: false
+Should Fail: true
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 16 ===
+Content: test
+test
+different content
+test
+Find: test
+Replace: updated
+ReplaceAll: false
+Should Fail: true
+Zig Result: ✅ SUCCESS
+Output: updated
+test
+different content
+test
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 17 ===
+Content: 
+Find: 
+Replace: new content
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 18 ===
+Content: const regex = /[.*+?^${}()|[\\]\\\\]/g;
+Find: /[.*+?^${}()|[\\]\\\\]/g
+Replace: /\\w+/g
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const regex = /\\w+/g;
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 19 ===
+Content: const message = "Hello 世界! 🌍";
+Find: Hello 世界! 🌍
+Replace: Hello World! 🌎
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const message = "Hello World! 🌎";
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 20 ===
+Content: console.log("Hello
+World");
+Find: console.log("Hello\nWorld");
+Replace: console.log("Hello
+Universe");
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: console.log("Hello
+Universe");
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 21 ===
+Content: const str = 'It's working';
+Find: const str = 'It\'s working';
+Replace: const str = 'It's fixed';
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const str = 'It's fixed';
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 22 ===
+Content: const template = `Hello ${name}`;
+Find: const template = `Hello \${nam...
+Replace: const template = `Hi ${name}`;
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const template = `Hi ${name}`;
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 23 ===
+Content: const path = 'C:\Users\test';
+Find: const path = 'C:\\Users\\test'...
+Replace: const path = 'C:\Users\admin';
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const path = 'C:\Users\admin';
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 24 ===
+Content: debug('start');
+debug('middle');
+debug('end');
+Find: debug
+Replace: log
+ReplaceAll: true
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: log('start');
+log('middle');
+log('end');
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 25 ===
+Content: const x = 1; const y = 1; const z = 1;
+Find: 1
+Replace: 2
+ReplaceAll: true
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const x = 2; const y = 2; const z = 2;
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 26 ===
+Content:   function test() {
+    return true;
+  }
+Find: function test() {
+  return tru...
+Replace: function test() {
+  return fal...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: function test() {
+  return false;
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 27 ===
+Content: 
+  const value = 42;  
+
+Find: const value = 42;
+Replace: const value = 24;
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const value = 24;
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 28 ===
+Content: 
+  if (condition) {
+    doSomething();
+  }
+
+Find: if (condition) {
+  doSomething...
+Replace: if (condition) {
+  doNothing()...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: if (condition) {
+  doNothing();
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 29 ===
+Content: function calculate(a, b) {
+  const temp = a + b;
+ ...
+Find: function calculate(a, b) {
+  /...
+Replace: function calculate(a, b) {
+  r...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 30 ===
+Content: class TestClass {
+  constructor() {
+    this.value...
+Find: class TestClass {
+  // differe...
+Replace: class TestClass {
+  getValue()...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 31 ===
+Content: 	console.log("test");	
+Find: console.log("test");
+Replace: console.log("updated");
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: console.log("updated");
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 32 ===
+Content:   
+function test() {
+  return 'value';
+}
+  
+Find: function test() {
+return 'valu...
+Replace: function test() {
+return 'new ...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: function test() {
+return 'new value';
+}
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 33 ===
+Content: console.log("test");
+Find: console.log("test");
+Replace: console.log("test");
+ReplaceAll: false
+Should Fail: true
+Zig Result: ❌ FAILED
+Error: Error: InvalidInput
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 34 ===
+Content: const pattern = "test[123]";
+Find: test[123]
+Replace: test[456]
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const pattern = "test[456]";
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 35 ===
+Content: const regex = "^start.*end$";
+Find: ^start.*end$
+Replace: ^begin.*finish$
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const regex = "^begin.*finish$";
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 36 ===
+Content: const path = "C:\Users";
+Find: const path = "C:\Users";
+Replace: const path = "D:\Users";
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const path = "D:\Users";
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 37 ===
+Content: console.log("Line1\nLine2");
+Find: console.log("Line1\nLine2");
+Replace: console.log("First\nSecond");
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: console.log("First\nSecond");
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 38 ===
+Content: function test() {
+  return true;
+}
+Find: function test() {
+  // middle
+...
+Replace: function test() {
+  return fal...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 39 ===
+Content: class Test {
+  method1() {
+    return 1;
+  }
+}
+Find: class Test {
+  // different co...
+Replace: class Test {
+  method2() { ret...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 40 ===
+Content: 
+Find: 
+Replace: 
+ReplaceAll: false
+Should Fail: true
+Zig Result: ❌ FAILED
+Error: Error: InvalidInput
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 41 ===
+Content: const a = 1;
+const b = 1;
+const c = 1;
+Find: = 1
+Replace: = 2
+ReplaceAll: false
+Should Fail: true
+Zig Result: ✅ SUCCESS
+Output: const a = 2;
+const b = 1;
+const c = 1;
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 42 ===
+Content: if	 	( 	condition	 )	{
+Find: if ( condition ) {
+Replace: if (newCondition) {
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: if (newCondition) {
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 43 ===
+Content: const msg = `Hello\tWorld`;
+Find: const msg = `Hello\tWorld`;
+Replace: const msg = `Hi\tWorld`;
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: const msg = `Hi\tWorld`;
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 44 ===
+Content: func main() {
+  if condition {
+    doSomething()
+ ...
+Find:   }
+  return mainLayout
+Replace:   }
+  // Add some code here
+  ...
+ReplaceAll: false
+Should Fail: true
+Zig Result: ✅ SUCCESS
+Output: func main() {
+  if condition {
+    doSomething()
+  }
+  processData()
+  if anotherCondition {
+    doO...
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 45 ===
+Content: function renderLayout() {
+  const header = createH...
+Find: function renderLayout() {
+  //...
+Replace: function renderLayout() {
+  co...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 46 ===
+Content: line 0
+line 1
+line 2
+line 3
+line 4
+line 5
+line 6
+l...
+Find: line 25
+line 26
+line 27
+line 2...
+Replace: updated line 25
+updated line 2...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ✅ SUCCESS
+Output: line 0
+line 1
+line 2
+line 3
+line 4
+line 5
+line 6
+line 7
+line 8
+line 9
+line 10
+line 11
+line 12
+line 1...
+Expected Behavior: ✅ CORRECT
+
+=== Test Case 47 ===
+Content: function renderLayout() {
+  const header = createH...
+Find: function renderLayout() {
+  //...
+Replace: function renderLayout() {
+  co...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+=== Test Case 48 ===
+Content: line 0
+line 1
+line 2
+line 3
+line 4
+line 5
+line 6
+l...
+Find: function test() {
+  // differe...
+Replace: function test() {
+  return 42
+...
+ReplaceAll: false
+Should Fail: false
+Zig Result: ❌ FAILED
+Error: Error: StringNotFound
+Expected Behavior: ❌ INCORRECT
+
+
+📈 COMPARISON SUMMARY
+==========================================
+Tool:                    edit
+Total Test Cases:        48
+Zig Tests Passed:        36/48 (75%)
+Matched Expectations:    35/48 (73%)
+
+⚠️  13 test cases don't match expected behavior
