@@ -10,3 +10,10 @@ playground
 tmp
 dist
 .turbo
+
+# Zig build artifacts
+.zig-cache/
+zig-out/
+
+# OpenCode submodule (large, not needed in repo)
+opencode/
